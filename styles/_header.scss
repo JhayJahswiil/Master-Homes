@@ -1,0 +1,123 @@
+@mixin header-section{
+    header{
+    width: 100%;
+
+    // NAV
+        nav{
+            @include flexbox(space-between);
+            padding: 20px 6%;
+            background-color: $off-black;
+
+            // NAV LOGO
+            .nav__logo{
+                color: $white;
+                padding-right: 10px;
+
+                & a{
+                    text-decoration: none;
+                    color: $white;
+                    
+                    & h2{
+                        font-size: 25px;
+
+                        @include media-query(400px){
+                        font-size: 20px;
+                        }
+
+                        @include media-query(280px){
+                        font-size: 17px;
+                        }
+                    }
+                }
+
+                .homes{
+                    color: $orange;
+                }
+            }
+
+            // NAV MENU
+            .nav__menu{
+                position: relative;
+
+                & ul{
+                    @include flexbox;
+                    gap: 10px;
+
+                    & li{
+                        list-style: none;
+                        width: 100%
+                    }
+
+                    & a{
+                        @include link($white);
+                        font-size: 16px;
+
+                        &:hover{
+                            color: $orange;
+                        }
+
+                        // UL ANCHOR MEDIA QUERY
+                        @include media-query(670px){
+                            color: $black;
+                            font-size: 20px;
+                            font-weight: 600;
+                            padding: 20px 14px;
+                            display: block;
+
+                            // UL ANCHOR MEDIA QUERY HOVER
+                            &:hover{
+                                background-color: $orange;
+                                color: $white;
+                            }
+                        }
+                    }
+
+                    // UL MEDIA QUERY
+                    @include media-query(670px){
+                        flex-direction: column;
+                        margin-top: 4em;
+                        text-align: left;
+                        gap: 3em;
+                        align-items: flex-start;
+                        font-weight: 300;
+                    }
+                }
+
+                // HAMBURGER OPEN CLASS
+                &.open{
+                    left: 0;
+                }
+
+                // HAMBURGER OPEN CLASS MEDIA QUERY
+                @include media-query(670px){
+                        position: absolute;
+                        top: 0;
+                        left: -250px;
+                        background-color: $white;
+                        height: 100vh;
+                        width: 250px;
+                        z-index: 1;
+                        transition: left .4s ease-in;
+                }
+            }
+
+            // NAV HAMBURGER
+            .nav__hamburger{
+                display: none;
+                background-color: $orange;
+                padding: 10px;
+                border-radius: 5px;
+
+                i{
+                    color: white;
+                    font-size: 22px;
+                }
+
+                // HAMBURGER MEDIA QUERY
+                @include media-query(670px){
+                    display: block;
+                }
+            }
+        }
+    }
+}

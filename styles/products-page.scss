@@ -1,0 +1,161 @@
+@import 'reset';
+@import 'colors';
+@import 'mixins';
+@import 'media';
+@import 'header';
+@import 'footer';
+@import 'card';
+@import 'pagination';
+
+
+
+body{
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+// HEADER
+@include header-section;
+
+// NAV SUB MENU
+.nav__sub--nav{
+    background-color: $orange;
+    height: 7vh;
+    @include flexbox(flex-start);
+    padding-left: 6%;
+    font-size: 18px;
+
+    & p{
+        color: $white;
+    }
+
+    & a {
+        color: $white;
+        font-weight: 600;
+    }
+}
+
+// HERO SECTION
+.hero{
+    width: 100%;
+    height: 65vh;
+    background: linear-gradient(#000000c0, #000000c2), 
+    url(/img/house-9.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    position: relative;
+    @include flexbox;
+
+    &__section--content{
+        text-align: center;
+        color: $white;
+
+        & h1{
+            color: $orange;
+            font-size: 55px;
+            padding: 0 30px;
+        }
+
+        & h3{
+            font-size: 38px;
+            padding: 0 30px;
+        }
+
+        & p{
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        & button{
+            margin-top: 1.8rem;
+            padding: 10px 40px;
+            background-color: $orange;
+            color: $white;
+            border: none;
+            border-radius: 2px;
+            font-size: 17px;
+            transition: ease-in .2s;
+
+            &:hover{
+                @include button-hover;
+            }
+        }
+    }
+}
+
+// LATEST PRODUCTS
+.latest__products{
+    width: 100%;
+    position: relative;
+
+    &--title{
+        padding: 0 5%;
+        margin-top: 5em;
+
+        & ul{
+            @include grid;
+            grid-template-columns: 120px 90px 110px 110px;
+            justify-content: center;
+            width: 100%;
+            column-gap: 20px;
+            list-style: none;
+
+            & a{
+                @include link;
+                font-size: 14px;
+                font-weight: 600;
+
+                &:hover{
+                    color: $orange-hover;
+                }
+            }
+
+            @include media-query(630px){
+            grid-template-columns: 1fr 1fr;
+            row-gap: 20px;
+            justify-items: center;
+            }
+        }
+    }
+}
+
+// HORIZONTAL ROW
+hr{
+    width: 92%;
+    margin: 20px auto;
+}
+
+// LATEST PRODUCT CARDS
+.latest__products--cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2.5%;
+    row-gap: 15px;
+    margin-top: 3em;
+    padding: 0 4%;
+
+    // EACH CARD
+    @include card;
+
+    // CARDS MEDIA QUERIES
+    @include media-query(850px){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include media-query(630px){
+        grid-template-columns: 1fr;
+        padding: 0 6%;
+    }
+}
+
+
+// PAGINATION
+@include pagination;
+
+// FOOTER
+@include footer;

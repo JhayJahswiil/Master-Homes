@@ -1,0 +1,24 @@
+// DISPLAY
+@mixin flexbox($justify: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+// BUTTON HOVER
+@mixin button-hover($hover-color: $orange-hover) {
+    background-color: $hover-color;
+    cursor: pointer;
+}
+
+// LINK
+@mixin link($link-color: $orange) {
+    text-decoration: none;
+    color: $link-color;
+}
+
+// GRID
+@mixin grid{
+    display: grid;
+}
+

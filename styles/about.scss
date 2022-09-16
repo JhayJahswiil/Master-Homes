@@ -1,0 +1,104 @@
+@import 'reset';
+@import 'colors';
+@import 'mixins';
+@import 'media';
+@import 'header';
+@import 'footer';
+@import 'card';
+@import 'pagination';
+
+
+
+body{
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+// HEADER
+@include header-section;
+
+// NAV SUB MENU
+.nav__sub--nav{
+    background-color: $orange;
+    height: 7vh;
+    @include flexbox(flex-start);
+    padding-left: 6%;
+    font-size: 18px;
+
+    & p{
+        color: $white;
+    }
+
+    & a {
+        color: $white;
+        font-weight: 600;
+    }
+}
+
+// HERO SECTION
+.hero{
+    width: 100%;
+    height: 58vh;
+    background: linear-gradient(#000000c0, #000000c2), 
+    url(/img/house-7.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    position: relative;
+    @include flexbox;
+
+    &__section--content{
+        text-align: center;
+        color: $white;
+
+        & h1{
+            color: $orange;
+            font-size: 50px;
+            padding: 0 30px;
+        }
+
+        & h3{
+            font-size: 35px;
+            padding: 0 30px;
+        }
+
+        & p{
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 300;
+        }
+
+        & button{
+            margin-top: 1.8rem;
+            padding: 10px 40px;
+            background-color: $orange;
+            color: $white;
+            border: none;
+            border-radius: 2px;
+            font-size: 17px;
+            transition: ease-in .2s;
+
+            &:hover{
+                @include button-hover;
+            }
+        }
+    }
+}
+
+// ABOUT CONTENT
+.about__content{
+    margin-top: 4em;
+    width: 100%;
+
+    & h2{
+        font-size: 50px;
+        text-align: center;
+    }
+}
+
+// FOOTER
+@include footer;
+
